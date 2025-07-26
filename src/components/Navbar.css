@@ -1,4 +1,6 @@
 /* Navbar.css */
+
+/* ========== Base Styles ========== */
 .navbar {
   background-color: #fff8f0;
   padding: 1rem 2rem;
@@ -6,7 +8,6 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* width: 100%; */
 }
 
 .navbar-container {
@@ -18,15 +19,15 @@
   flex-wrap: wrap;
 }
 
-/* Logo */
+/* ========== Logo ========== */
 .logo {
   font-size: 1.7rem;
   font-weight: 700;
-  color:  #62445A;
+  color: #62445A;
   text-decoration: none;
 }
 
-/* Hamburger Icon */
+/* ========== Hamburger Icon ========== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -41,7 +42,7 @@
   transition: 0.3s ease;
 }
 
-/* Nav Links */
+/* ========== Navigation Links ========== */
 .nav-left {
   display: flex;
   align-items: center;
@@ -52,13 +53,14 @@
   color: #333;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
   color: #ff6347;
 }
 
-/* Dropdown */
+/* ========== Dropdown (Desktop) ========== */
 .dropdown {
   position: relative;
 }
@@ -83,11 +85,10 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color:  #DBD5CD;
+  background-color: #DBD5CD;
   color: #62445A;
-  min-width: 50px;
+  min-width: 160px;
   border: 1px solid #ddd;
-  text-align: start;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: none;
@@ -107,11 +108,11 @@
 .dropdown-content li:hover,
 .active-category {
   background-color: #62445A;
-  color:  #DBD5CD;
+  color: #DBD5CD;
   font-weight: bold;
 }
 
-/* Responsive */
+/* ========== Responsive Styles ========== */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -138,21 +139,42 @@
     padding: 0.5rem 0;
   }
 
-  /* Fix: Make dropdown content same as other links */
+  .dropdown {
+    width: 100%;
+  }
+
+  /* ✅ Prevent hover behavior on mobile */
+  .dropdown:hover .dropdown-content {
+    /* display: none; */
+  }
+
+  /* ✅ Default: dropdown is closed on mobile */
   .dropdown-content {
-    position: relative;       /* changed from static */
+    display: none;
+    position: static;
     background-color: transparent;
     border: none;
     box-shadow: none;
-    padding: 0;               /* removed left padding */
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* ✅ Only show when .open class is added */
+  .dropdown-content.open {
+    display: block;
   }
 
   .dropdown-content li {
     padding: 0.5rem 0;
     background-color: transparent;
+    color: #333;
+    border-bottom: 1px solid #eee;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .dropdown-content li:hover,
+  .active-category {
+    background-color: #62445A;
+    color: #DBD5CD;
+    font-weight: bold;
   }
 }
