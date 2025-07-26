@@ -1,0 +1,158 @@
+/* Navbar.css */
+.navbar {
+  background-color: #fff8f0;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* width: 100%; */
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color:  #62445A;
+  text-decoration: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: 0.3s ease;
+}
+
+/* Nav Links */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #ff6347;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.arrow {
+  font-size: 0.8rem;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color:  #DBD5CD;
+  color: #62445A;
+  min-width: 50px;
+  border: 1px solid #ddd;
+  text-align: start;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.dropdown-content li:hover,
+.active-category {
+  background-color: #62445A;
+  color:  #DBD5CD;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-left {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #fff8f0;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-left.show {
+    display: flex;
+  }
+
+  .nav-link,
+  .dropbtn {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+
+  /* Fix: Make dropdown content same as other links */
+  .dropdown-content {
+    position: relative;       /* changed from static */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;               /* removed left padding */
+  }
+
+  .dropdown-content li {
+    padding: 0.5rem 0;
+    background-color: transparent;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}

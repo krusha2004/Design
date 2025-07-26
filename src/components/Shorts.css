@@ -1,0 +1,40 @@
+.shorts-section {
+  background-color:  #DBD5CD;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.shorts-title {
+  font-size: 2.5rem;
+  color: #62445A;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.short-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.short-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.short-video {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border: none;
+}
